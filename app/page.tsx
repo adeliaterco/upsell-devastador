@@ -424,7 +424,7 @@ export default function UpsellPage() {
 
           <div className="text-center">
             <a
-              href="https://comprarplanseguro.shop/dw/"
+              href="https://protocolo-dw.vercel.app/"
               className="text-muted-foreground hover:text-foreground transition-colors underline text-sm md:text-base"
             >
               No, prefiero usar solo el Plan A (20 días promedio)
