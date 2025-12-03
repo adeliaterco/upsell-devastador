@@ -585,7 +585,7 @@ const UpsellPage: React.FC = () => {
 
   const handleDownsell = () => {
     // INSIRA AQUI O LINK DO SEU DOWNSELL
-    window.open("https://protocolo-dw.vercel.app/", "_blank");
+    window.open("https://protocolo-dw-vc.vercel.app/", "_blank");
   };
 
   if (isExpired) {
