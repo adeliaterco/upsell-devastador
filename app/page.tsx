@@ -462,6 +462,13 @@ const globalStyles = `
   .probability-circle {
     animation: rotate 2s linear infinite;
   }
+
+  /* Hotmart Widget Styles */
+  #hotmart-sales-funnel {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
 `;
 
 // --- Main Upsell Page Component ---
@@ -556,9 +563,29 @@ const UpsellPage: React.FC = () => {
 
   }, []);
 
-  const handlePurchase = () => {
-    // Placeholder para o link da Hotmart
-    window.open("https://pay.hotmart.com/SEU_CODIGO_HOTMART_AQUI", "_blank");
+  // Hotmart Widget effect
+  useEffect(() => {
+    // Função para carregar o widget da Hotmart
+    const loadHotmartWidget = () => {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.hotmart.com/lib/hotmart-checkout-elements.js';
+      script.onload = () => {
+        if (window.checkoutElements) {
+          window.checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
+        }
+      };
+      document.head.appendChild(script);
+    };
+
+    // Carrega o widget após um pequeno delay para garantir que o DOM está pronto
+    const timer = setTimeout(loadHotmartWidget, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleDownsell = () => {
+    // INSIRA AQUI O LINK DO SEU DOWNSELL
+    window.open("https://protocolo-dw.vercel.app/", "_blank");
   };
 
   if (isExpired) {
@@ -600,18 +627,9 @@ const UpsellPage: React.FC = () => {
             <p className="text-lg md:text-xl mb-8 text-gray-300">
               No arriesgues tu reconquista por <span className="font-bold text-yellow-400">11 días extra de riesgo</span>.
             </p>
-            <button
-              onClick={handlePurchase}
-              className="block w-full py-4 px-6 mb-4 bg-gradient-to-r from-red-600 to-red-800 text-white text-xl font-black rounded-lg shadow-lg hover:from-red-700 hover:to-red-900 transition-all transform hover:scale-105 animate-pulse-glow"
-            >
-              SÍ, QUIERO EL PLAN A PERMANENTE POR $19.99
-            </button>
-            <button
-              onClick={() => setShowExitModal(false)}
-              className="text-gray-400 hover:text-white underline text-sm"
-            >
-              No, prefiero arriesgarme
-            </button>
+            <p className="text-gray-400 text-sm">
+              Usa el widget de compra segura abajo en la página para garantizar esta oferta.
+            </p>
           </div>
         </div>
       )}
@@ -918,11 +936,45 @@ const UpsellPage: React.FC = () => {
               <p className="text-sm md:text-base text-green-500 mt-4">Acceso inmediato + Garantía de 30 días</p>
             </div>
 
-            {/* Hotmart Widget Placeholder */}
-            <div className="glass p-6 rounded-xl mb-8 text-gray-400">
-              {/* Insere o código do widget da Hotmart aqui */}
-              <div id="box-hotmart-widget"></div>
-              <p className="mt-4">Haz clic en el botón de abajo para asegurar tu oferta.</p>
+            {/* HOTMART WIDGET */}
+            <div className="glass-strong border-l-8 border-yellow-400 p-6 md:p-8 rounded-xl mb-8">
+              <div className="text-center mb-6">
+                <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">
+                  🔒 PAGAMENTO SEGURO
+                </div>
+                <p className="text-sm md:text-base text-gray-300">
+                  Transação protegida pela Hotmart • SSL 256-bit • Garantia de 30 dias
+                </p>
+              </div>
+              
+              {/* HOTMART SALES FUNNEL WIDGET */}
+              <div id="hotmart-sales-funnel"></div>
+              
+              <div className="flex items-center justify-center gap-4 mt-4 text-xs md:text-sm text-gray-400">
+                <span className="flex items-center gap-1">
+                  <Shield className="w-4 h-4" />
+                  Compra Segura
+                </span>
+                <span className="flex items-center gap-1">
+                  <Check className="w-4 h-4" />
+                  Acesso Imediato
+                </span>
+                <span className="flex items-center gap-1">
+                  <Heart className="w-4 h-4" />
+                  Garantia 30 dias
+                </span>
+              </div>
+            </div>
+
+            <div className="glass max-w-2xl mx-auto p-6 rounded-xl mb-8 text-left">
+              <h4 className="text-lg md:text-xl font-black mb-4 text-green-500">✅ Lo que recibes INMEDIATAMENTE:</h4>
+              <ul className="space-y-2 text-sm md:text-base text-gray-200">
+                <li>• Acceso instantáneo al Plan A Permanente completo</li>
+                <li>• 3 módulos de blindaje emocional para evitar la segunda ruptura</li>
+                <li>• Plan de acción día a día para mantenerla obsesionada y comprometida</li>
+                <li>• Garantía de 30 días sin riesgo</li>
+                <li>• Actualizaciones gratuitas de por vida</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -959,37 +1011,16 @@ const UpsellPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA SECTION */}
+      {/* FINAL SECTION - ONLY DOWNSELL BUTTON */}
       <section className="py-16 md:py-24 bg-gray-900">
         <div className="container mx-auto px-4 text-center">
-          <button
-            onClick={handlePurchase}
-            className="block w-full max-w-2xl mx-auto py-4 md:py-6 px-8 md:px-12 mb-8 bg-gradient-to-r from-red-600 to-red-800 text-white text-xl md:text-2xl lg:text-3xl font-black rounded-xl shadow-lg hover:from-red-700 hover:to-red-900 transition-all transform hover:scale-105 animate-shine"
-          >
-            🔥 SÍ, QUIERO EL BLINDAJE PERMANENTE
-            <div className="text-base md:text-lg font-semibold mt-2">
-              Agregar Plan A Permanente por solo $19.99 - Acceso inmediato
-            </div>
-          </button>
-
-          <div className="glass max-w-2xl mx-auto p-6 rounded-xl mb-8 text-left">
-            <h4 className="text-lg md:text-xl font-black mb-4 text-green-500">✅ Lo que recibes INMEDIATAMENTE:</h4>
-            <ul className="space-y-2 text-sm md:text-base text-gray-200">
-              <li>• Acceso instantáneo al Plan A Permanente completo</li>
-              <li>• 3 módulos de blindaje emocional para evitar la segunda ruptura</li>
-              <li>• Plan de acción día a día para mantenerla obsesionada y comprometida</li>
-              <li>• Garantía de 30 días sin riesgo</li>
-              <li>• Actualizaciones gratuitas de por vida</li>
-            </ul>
-          </div>
-
           <div className="text-center">
-            <a
-              href="https://protocolo-dw.vercel.app/" // Substitua pelo seu link de fallback
-              className="text-gray-400 hover:text-white underline text-sm md:text-base"
+            <button
+              onClick={handleDownsell}
+              className="text-gray-400 hover:text-white underline text-sm md:text-base transition-colors duration-300"
             >
               No, prefiero arriesgarme a perderla de nuevo (y pagar $371 después)
-            </a>
+            </button>
           </div>
         </div>
       </section>
