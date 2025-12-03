@@ -665,7 +665,7 @@ const UpsellPage: React.FC = () => {
                 {/* WhatsApp Header */}
                 <div className="bg-green-700 p-4 pt-8 flex items-center text-white text-sm">
                   <span className="mr-2 text-lg">←</span>
-                  <img src="https://i.ibb.co/5gSMWD68/Generatedimage-1764387030465.png" className="w-10 h-10 rounded-full mr-3 object-cover" alt="Avatar" />
+                  <img src="https://i.ibb.co/FkNTjHPv/Untitled-design.webp" className="w-10 h-10 rounded-full mr-3 object-cover" alt="Avatar" />
                   <div className="flex-grow text-left">
                     <div className="font-bold">María</div>
                     <div className="text-xs opacity-80">En línea</div>
