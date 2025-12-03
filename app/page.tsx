@@ -942,9 +942,6 @@ const UpsellPage: React.FC = () => {
                 <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-2">
                   🔒 PAGAMENTO SEGURO
                 </div>
-                <p className="text-sm md:text-base text-gray-300">
-                  Transação protegida pela Hotmart • SSL 256-bit • Garantia de 30 dias
-                </p>
               </div>
               
               {/* HOTMART SALES FUNNEL WIDGET */}
