@@ -595,7 +595,7 @@ const UpsellPage: React.FC = () => {
           <div className="text-6xl md:text-8xl mb-6">⏰</div>
           <h1 className="text-4xl md:text-6xl font-black text-red-500 mb-6">OFERTA EXPIRADA</h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-300">El Plan A Permanente ahora cuesta $371</p>
-          <p className="text-lg text-gray-400">Esta oferta especial de $19.99 ya no está disponible.</p>
+          <p className="text-lg text-gray-400">Esta oferta especial de $17 ya no está disponible.</p>
         </div>
       </div>
     );
@@ -621,7 +621,7 @@ const UpsellPage: React.FC = () => {
               ¡ALTO! ¿Estás seguro de que quieres perder esto?
             </h2>
             <p className="text-lg md:text-xl mb-6 text-gray-300">
-              Esta oferta especial de <span className="font-bold text-yellow-400">$19.99</span> para el Plan A Permanente
+              Esta oferta especial de <span className="font-bold text-yellow-400">$17</span> para el Plan A Permanente
               <span className="font-bold text-red-500"> desaparecerá PARA SIEMPRE</span> si sales de esta página.
             </p>
             <p className="text-lg md:text-xl mb-8 text-gray-300">
@@ -919,7 +919,7 @@ const UpsellPage: React.FC = () => {
                   <strong>Ya invertiste en el Plan A</strong> para reconquistarla.
                 </p>
                 <p>
-                  ¿Vas a arriesgar que ella pierda el interés y te deje de nuevo por no invertir <strong className="text-red-500">solo $19.99</strong>?
+                  ¿Vas a arriesgar que ella pierda el interés y te deje de nuevo por no invertir <strong className="text-red-500">solo $17</strong>?
                 </p>
                 <p className="text-xl md:text-2xl font-black text-red-500">
                   ¿Vale la pena el riesgo de una segunda ruptura, que es 3x más dolorosa?
@@ -929,7 +929,7 @@ const UpsellPage: React.FC = () => {
 
             <div className="glass-strong p-8 rounded-xl border-l-8 border-green-500 mb-12">
               <div className="text-2xl md:text-3xl text-gray-400 line-through mb-4">Valor total: $371</div>
-              <div className="text-5xl md:text-7xl font-black text-red-500 mb-6">$19.99</div>
+              <div className="text-5xl md:text-7xl font-black text-red-500 mb-6">$17</div>
               <div className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-lg md:text-xl px-6 py-3 font-black rounded-full animate-pulse-glow">
                 ¡Ahorras $351! (95% de descuento)
               </div>
