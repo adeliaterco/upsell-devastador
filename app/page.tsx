@@ -568,7 +568,7 @@ const UpsellPage: React.FC = () => {
     // Função para carregar o widget da Hotmart
     const loadHotmartWidget = () => {
       const script = document.createElement('script');
-      script.src = 'https://checkout.hotmart.com/lib/hotmart-checkout-elements.js';
+      script.src = 'https://pay.hotmart.com/D100233207O?off=hgjszxx1';
       script.onload = () => {
         if (window.checkoutElements) {
           window.checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel');
